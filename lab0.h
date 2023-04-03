@@ -21,20 +21,23 @@ class Paga{
         Moneda moneda;
     public:
         Paga();
-        Paga a_dolar();
-        Paga a_peso();
+        Paga(float monto, Moneda moneda);
+        ~Paga();
+        void setMonto(float);
+        void setMoneda(Moneda);
+        float getMonto();
+        Moneda getMoneda();
+
+        float a_dolar(float);
+        float a_peso(float);
 
 };
 
-// class cambio{
-
-//     private:
-//         static inline float const  USD = 40.15;
-//         static inline  float const US = 1;
-//     public:
-//         float a_peso(float);
-//         float a_dolar(float);
-// };
+class cambio{
+    public:
+        static float a_peso(float);
+        static float a_dolar(float);
+};
 
 
 
@@ -61,9 +64,9 @@ class empleado {
         int getEdad();
         Paga getValor_hora();
         
-        float  get_sueldo_peso();
-        float  get_sueldo_dolar();
-       // void imprimir_empleado();
+        virtual float get_sueldo_peso();
+        virtual float get_sueldo_dolar();
+        void imprimir_empleado();
 };
 
 
@@ -72,21 +75,25 @@ class fijo : public empleado{
 
     public:
         fijo(string nombre, string ci, int edad, Paga valor_hora);
+        ~fijo();
         void imprimir_fijo();
         float get_sueldo_peso();
         float get_sueldo_dolar();
+
 };
 
 
 
 class jornalero: public empleado {
     
-
     private:
         int horas;
 
     public:
         jornalero(string nombre, string ci, int edad, Paga valor_hora);
+        ~jornalero();
+        void set_horas(int horas);
+        int get_horas();
         float get_sueldo_peso();
         float get_sueldo_dolar();
 
