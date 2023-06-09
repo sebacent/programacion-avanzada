@@ -11,8 +11,8 @@ class Empresa : public ICollectible {
     private: 
         int RUT;
         std::string nombre; 
-        //IDictionary *sucursales; 
-        List *sucursales; 
+        IDictionary *sucursales; 
+        //+List *sucursales; 
     public:
         Empresa(std::string nombre,int rut);
         ~Empresa();

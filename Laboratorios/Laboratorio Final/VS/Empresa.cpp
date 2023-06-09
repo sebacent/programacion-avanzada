@@ -1,6 +1,5 @@
 #include "Empresa.h"
 
-// using the Empresa.h create the getters and setters   for the class Empresa
 Empresa::Empresa(std::string _nombre, int _rut) {
     nombre = _nombre;
     RUT = _rut;
