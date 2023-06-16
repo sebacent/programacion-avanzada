@@ -1,0 +1,158 @@
+INTERFACES = ICollection/interfaces/
+COLECCIONES = ICollection/collections/
+OBJETOS = Seccion.o Sucursal.o Empresa.o main.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
+
+
+
+
+all: $(OBJETOS)
+	g++ $(OBJETOS) -o programa
+
+ICollectible.o: $(INTERFACES)ICollectible.h
+	g++ -Wall -g -c $(INTERFACES)ICollectible.cpp 
+
+IIterator.o: $(INTERFACES)IIterator.h $(INTERFACES)ICollectible.o
+	g++ -Wall -g -c $(INTERFACES)IIterator.cpp 
+
+IKey.o: $(INTERFACES)IKey.h
+	g++ -Wall -g -c $(INTERFACES)IKey.cpp
+
+OrderedKey.o: $(INTERFACES)OrderedKey.h $(INTERFACES)IKey.o 
+	g++ -Wall -g -c $(INTERFACES)OrderedKey.cpp
+
+Integer.o: ICollection/Integer.h ICollectible.o OrderedKey.o
+	g++ -Wall -g -c ICollection/Integer.cpp
+
+OrderedDictionaryEntry.o: $(COLECCIONES)OrderedDictionaryEntry.h ICollectible.o OrderedKey.o
+	g++ -Wall -g -c $(COLECCIONES)OrderedDictionaryEntry.cpp
+
+ListNode.o: $(COLECCIONES)ListNode.h ICollectible.o
+	g++ -Wall -g -c $(COLECCIONES)ListNode.cpp
+
+ListIterator.o: $(COLECCIONES)ListIterator.h ListNode.o 
+	g++ -Wall -g -c $(COLECCIONES)ListIterator.cpp
+
+IDictionary.o: $(INTERFACES)IDictionary.h IIterator.o ICollectible.o IKey.o
+	g++ -Wall -g -c $(INTERFACES)IDictionary.cpp
+
+OrderedDictionary.o: $(COLECCIONES)OrderedDictionary.h IDictionary.o OrderedDictionaryEntry.o ListIterator.o
+	g++ -Wall -g -c $(COLECCIONES)OrderedDictionary.cpp
+
+# Animal.o: ICollectible.o
+# 	g++ -Wall -g -c Animal.cpp
+
+Seccion.o: ICollectible.o 
+	g++ -Wall -g -c Seccion.cpp
+
+Sucursal.o: Seccion.o OrderedDictionary.o
+	g++ -Wall -g -c Sucursal.cpp	
+
+Empresa.o: Sucursal.o ICollectible.o OrderedDictionary.o
+	g++ -Wall -g -c Empresa.cpp
+
+main.o: Empresa.o
+	g++ -Wall -g -c main.cpp
+
+clean:
+	rm -f programa *.o $(INTERFACES)*.o $(COLECCIONES)*.o
+run:
+	make clean
+	make
+	clear
+	./programa
+
+
+
+
+
+# main: main.o
+# 	g++ -Wall -g main.o -o main
+
+# main.o: main.cpp Empresa.o
+# 	g++ -Wall -g -c main.cpp -o main.o
+
+# Empresa.o: Empresa.cpp 
+# 	g++ -Wall -g -c Empresa.o -o Empresa.o
+
+# Empresa.cpp: Empresa.h ICollection/collections/List.h ICollection/interfaces/ICollectible.h
+# 	g++ -Wall -g -c Empresa.cpp -o Empresa.o
+
+# all: main
+
+# main: main.o Empresa.o
+# 	g++ -Wall -g main.o Empresa.o -o main
+
+# main.o: main.cpp Empresa.h
+# 	g++ -Wall -g -c main.cpp -o main.o
+
+# Empresa.o: Empresa.cpp Empresa.h ICollection/collections/List.cpp ICollection/interfaces/ICollectible.cpp
+# 	g++ -Wall -g -c Empresa.cpp -o Empresa.o
+
+# ICollectible.cpp : ICollection/interfaces/ICollectible.h
+# 	g++ -Wall -g -c ICollection/interfaces/ICollectible.o ICollection/interfaces/ICollectible.cpp  
+
+# List.cpp : ICollection/collections/List.h ICollection/interfaces/ICollectible.h
+# 	g++ -Wall -g -c ICollection/collections/List.o ICollection/collections/List.cpp 
+
+# clean:
+# 	rm -f *.o main
+
+	
+# #help me making this makefile
+
+# Path: makefile
+# -g option enables debugging mode
+# -Wall flag turns on most, but not all, compiler warnings
+# -c flag generates object code for separate files
+# -std=c++11 flag is for C++11 version
+
+# # Compiler
+# CXX = g++
+# CXXFLAGS = -Wall -g #-std=c++11
+
+# # Linker
+# LD = g++
+# LDFLAGS = -g
+
+# # Sources
+# SRCS = main.cpp Empresa.cpp ICollection/collections/List.cpp ICollection/interfaces/ICollectible.cpp #ICollectible.cpp List.cpp 
+
+# # Headers
+# HEADERS = $(wildcard *.h)
+
+# # Objects
+# OBJS = $(SRCS:.cpp=.o)
+
+# # Binary
+# BIN = main #ICollectible List
+
+# # Compile
+# all: $(BIN)
+# # RECIPE para generar el archivo binario a partir de los archivos objeto generados durante la compilación.
+# $(BIN): $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(BIN)
+
+# #Define una regla para generar un archivo objeto a partir de un archivo fuente 
+# #y los archivos de encabezado necesarios.
+# #Esta línea es la receta para generar un archivo objeto a partir de un archivo fuente y
+# #los archivos de encabezado necesarios.
+
+# %.o: %.cpp $(HEADERS)
+# 	$(CXX) $(CXXFLAGS) -c $< -o $@ 
+
+
+
+# # Clean
+# # Define una regla llamada clean que elimina todos los archivos OBJS y BIN
+# # generados durante la compilación.
+# clean:
+# 	rm -f $(OBJS) $(BIN)
+
+# # Path: makefile
+
+
+
+# # ICollection/collection/List.o: ICollection/collection/List.cpp
+# #     g++ -Wall -g -c ICollection/collection/List.cpp -o ICollection/collection/List.o
+
+# */

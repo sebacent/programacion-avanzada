@@ -17,7 +17,7 @@ Sistema::~Sistema (){};
 // }
 
 void Sistema::addEmpresa(int rut,std::string nombre){
-    IKey* key = new Integer(rut);// <--- NO HAY CONSTRUCTOR DE IKEY????????
+    IKey* key = new IKey(rut);// <--- NO HAY CONSTRUCTOR DE IKEY????????
     Empresa* empresa = new Empresa(nombre,rut);
     empresas->add(key,empresa);
     delete key;

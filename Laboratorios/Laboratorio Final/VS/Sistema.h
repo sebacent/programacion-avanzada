@@ -13,14 +13,14 @@ class Sistema {
         static Sistema* instancia;
         Sistema ();
         ~Sistema ();
-        IDictionary* empresas;
-        IDictionary* estudiantes;
-        IDictionary* ofertas;
-        IDictionary* asignaturas;    
-        // List* empresas;
-        // List* estudiantes;
-        // List* ofertas;
-        // List* asignaturas;        
+        // IDictionary* empresas;
+        // IDictionary* estudiantes;
+        // IDictionary* ofertas;
+        // IDictionary* asignaturas;    
+        List* empresas;
+        List* estudiantes;
+        List* ofertas;
+        List* asignaturas;        
     public:
         //AGREGAR A COLECCIONES
         void addEmpresa(int rut,std::string nombre);
