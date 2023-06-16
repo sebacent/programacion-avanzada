@@ -4,7 +4,7 @@
 #include "ICollection/interfaces/IDictionary.h"
 #include "ICollection/collections/List.h"
 #include "Carrera.h"
-#include <iostream>
+//#include <iostream>
 
 class Persona : public ICollectible {
   private:

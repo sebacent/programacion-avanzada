@@ -1,36 +1,53 @@
-#include <string.h>
-#include <iostream>
-#include "Date.h"
-#include "ICollection/interfaces/ICollectible.h"
-#include "ICollection/interfaces/ICollection.h"
-#include "ICollection/interfaces/IDictionary.h"
-#include "ICollection/collections/List.h"
+//#include "Date.h"
+//
+//#include "ICollection/interfaces/ICollection.h"
+//#include "ICollection/interfaces/IDictionary.h"
+//#include "ICollection/collections/List.h"
+// #include"ICollection.h"
+// #include "List.h"
+//#include <iostream>
+//#include <string.h>
+// #include "ICollection/interfaces/ICollectible.h"
+// #include "ICollection/collections/OrderedDictionary.h"
+//#include <string> 
+#include "Sucursal.h"
+
 
 class Empresa : public ICollectible {
 
     private: 
         int RUT;
         std::string nombre; 
-        //IDictionary *sucursales; 
-        List *sucursales; 
+        IDictionary * sucursales; 
+        //List *sucursales; 
     public:
-        Empresa(std::string nombre,int rut);
+        Empresa(std::string _nombre,int _rut);
         ~Empresa();
-
-        //GETS/SETS
+        Empresa();
+        //SETS
+        void setRUT(int _RUT);
+        void setNombre(std::string _nombre);
+        //GETS
         int getRUT();
-        std::string getNombre();
-        void setRUT(int rut);
-        void setNombre(std::string nombre);
+        std::string getNombre(); 
+
+        //OPERACIONES DE SUCURSALES
+        void addSucursal(Sucursal * _sucursal);
+        std::string getInfoSuc(int _idSuc);
+        void deleteSucursal(int _idSuc);
+        void ListarSucursales();
+        void eliminarSucursales();
+};
+
 
         //ADDS/DELETE
-        void addSucursal();
-        void deleteSucursal();
-
-        //OPERACIONES DE CLASE
         
-        void addSucursal(int idSucursal,std::string sucNombre, std::string telefono, std::string direccion);    
-        IDictionary* getSucursales();
-        void deleteSucursal(int idSucursal);
-        ICollection* listarSecciones();
-};
+        //void deleteSucursal(int _idSucursal);
+
+    //     //OPERACIONES DE CLASE
+        
+    //     void addSucursal(int idSucursal,std::string sucNombre, std::string telefono, std::string direccion);    
+    //     //IDictionary* getSucursales();
+    //     void deleteSucursal(int idSucursal);
+    //    // ICollection* listarSecciones();
+

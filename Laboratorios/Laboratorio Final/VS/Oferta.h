@@ -16,7 +16,7 @@ class OfertaLaboral : public ICollectible {
     Date fechaInicio;
     Date fechaFin;
     int cantPuestos;
-    IDictionary *asignaturas;
+    //IDictionary *asignaturas;
     
 
   public:
