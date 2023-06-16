@@ -1,10 +1,11 @@
-#include <iostream>
-#include "ICollection/interfaces/ICollectible.h"
-#include "ICollection/interfaces/ICollection.h"
-#include "ICollection/interfaces/IDictionary.h"
-#include "ICollection/collections/List.h"
+// #include <iostream>
+// #include "ICollection/interfaces/ICollectible.h"
+// #include "ICollection/interfaces/ICollection.h"
+// #include "ICollection/interfaces/IDictionary.h"
+// #include "ICollection/collections/List.h"
 #include "Date.h"
 #include "RangoSueldo.h"
+#include "Asignatura.h"
 
 class OfertaLaboral : public ICollectible {
   private:
@@ -16,7 +17,10 @@ class OfertaLaboral : public ICollectible {
     Date fechaInicio;
     Date fechaFin;
     int cantPuestos;
-    //IDictionary *asignaturas;
+    IDictionary *asignaturas;
+    IDictionary *inscripciones;
+    IDictionary *contrataciones;
+    
     
 
   public:

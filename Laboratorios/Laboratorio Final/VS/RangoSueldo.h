@@ -14,5 +14,5 @@ int RangoSueldo::getMinimo(){
 
 int RangoSueldo::getMaximo(){
     return sueldoMax;
-};
+}; 
 

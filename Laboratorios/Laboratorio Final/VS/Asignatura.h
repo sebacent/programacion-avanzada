@@ -1,34 +1,23 @@
-#include <iostream>
-#include "ICollection/interfaces/ICollectible.h"
-#include "ICollection/interfaces/ICollection.h"
-#include "ICollection/interfaces/IDictionary.h"
-#include "ICollection/collections/List.h"
-#include "Carrera.h"
+// #include <iostream>
+// #include "ICollection/interfaces/ICollectible.h"
+// #include "ICollection/interfaces/ICollection.h"
+// #include "ICollection/interfaces/IDictionary.h"
+// #include "ICollection/collections/List.h"
+// #include "Carrera.h"
+#include <string>
+#include "ICollectible.h"
+
 
 
 class Asignatura : public  ICollectible {
   private:
     std::string nombre;
-    std::string direccion;
-    std::string telefono;
-    int numero;
+    std::string id;
+    int creditos;
   public:
-    Asignatura(std::string nombre, std::string direccion, std::string telefono, int numero) {
-      this->nombre = nombre;
-      this->direccion = direccion;
-      this->telefono = telefono;
-      this->numero = numero;
-    }
-    std::string getNombre() {
-      return nombre;
-    }
-    std::string getDireccion() {
-      return direccion;
-    }
-    std::string getTelefono() {
-      return telefono;
-    }
-    int getNumero() {
-      return numero;
-    }
+    Asignatura(std::string nombre, std::string id, int creditos);
+    ~Asignatura();
+    std::string getNombre();
+    std::string getid();
+    int getcreditos();
 };

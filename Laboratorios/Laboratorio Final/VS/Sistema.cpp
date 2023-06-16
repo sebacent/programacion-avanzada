@@ -18,14 +18,14 @@ Sistema::~Sistema (){};
 
 void Sistema::addEmpresa(int rut,std::string nombre){
     IKey* key = new IKey(rut);// <--- NO HAY CONSTRUCTOR DE IKEY????????
-    Empresa* empresa = new Empresa(nombre,rut);
+    Empresa * empresa = new Empresa(nombre,rut);
     empresas->add(key,empresa);
     delete key;
 }
 
 void Sistema::addEstudiante(std::string ciEstudiante, std::string nombre, Date fechaNac  ){
     IKey* key = new KeyString(ciEstudiante);
-    ICollectible* estudiante = new Estudiante(ciEstudiante,nombre);
+    Estudiante * estudiante = new Estudiante(ciEstudiante,nombre);
     estudiante->add(key,estudiante);
     delete key;
 }

@@ -3,7 +3,8 @@
 Seccion::Seccion(std::string _nombre, std::string _telefono, int _idSeccion) {
     this->nombre = _nombre;
     this->telefono = _telefono;
-    this->idSeccion = _idSeccion;
+    this->idSeccion >= _idSeccion;
+
 }
 
 Seccion::~Seccion() {}

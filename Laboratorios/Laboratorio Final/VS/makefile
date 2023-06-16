@@ -1,6 +1,6 @@
 INTERFACES = ICollection/interfaces/
 COLECCIONES = ICollection/collections/
-OBJETOS = Seccion.o Sucursal.o Empresa.o main.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
+OBJETOS = Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o Empresa.o main.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
 
 
 
@@ -38,8 +38,17 @@ IDictionary.o: $(INTERFACES)IDictionary.h IIterator.o ICollectible.o IKey.o
 OrderedDictionary.o: $(COLECCIONES)OrderedDictionary.h IDictionary.o OrderedDictionaryEntry.o ListIterator.o
 	g++ -Wall -g -c $(COLECCIONES)OrderedDictionary.cpp
 
-# Animal.o: ICollectible.o
-# 	g++ -Wall -g -c Animal.cpp
+Carre.o: ICollectible.o 
+	g++ -Wall -g -c Carre.cpp
+
+Persona.o: ICollectible.o 
+	g++ -Wall -g -c Persona.cpp
+
+Encargado.o: Persona.o 
+	g++ -Wall -g -c Encargado.cpp
+
+Estudiante.o: Persona.o Carre.o
+	g++ -Wall -g -c Estudiante.cpp
 
 Seccion.o: ICollectible.o 
 	g++ -Wall -g -c Seccion.cpp
