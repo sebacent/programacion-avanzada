@@ -6,7 +6,7 @@
 #include "ICollection/collections/List.h"
 //FORWARD DECLARATION PARA QUE NO ME TIRE ERRRORES
 
-class Empresa;
+//class Empresa;
 
 class Sistema {
     private:

@@ -1,5 +1,5 @@
 class Date {
-  public:
+  private:
     int dia;
     int mes;
     int anio;

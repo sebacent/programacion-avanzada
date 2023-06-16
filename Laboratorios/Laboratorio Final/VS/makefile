@@ -68,6 +68,7 @@ run:
 	make clean
 	make
 	clear
+	make clean
 	./programa
 
 

@@ -55,10 +55,14 @@ main.o: Empresa.o
 
 clean:
 	rm -f programa *.o $(INTERFACES)*.o $(COLECCIONES)*.o
+	
+clean.o: 
+	rm -f *.o $(INTERFACES)*.o $(COLECCIONES)*.o	 		
 run:
 	make clean
 	make
 	clear
+	make clean.o
 	./programa
 
 
