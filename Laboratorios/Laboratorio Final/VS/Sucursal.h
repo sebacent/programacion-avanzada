@@ -1,3 +1,6 @@
+#ifndef SUCURSAL_H
+#define SUCURSAL_H
+
 //#include "ICollection/interfaces/ICollectible.h"
 //#include "ICollection/interfaces/ICollection.h"
 //#include "ICollection/interfaces/IDictionary.h"
@@ -47,3 +50,5 @@ class Sucursal : public ICollectible {
 
 
 };
+
+#endif /* SUCURSAL_H */

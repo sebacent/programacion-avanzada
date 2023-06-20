@@ -1,3 +1,5 @@
+#ifndef EMPRESA_H
+#define EMPRESA_H
 //#include "Date.h"
 //
 //#include "ICollection/interfaces/ICollection.h"
@@ -51,3 +53,4 @@ class Empresa : public ICollectible {
     //     void deleteSucursal(int idSucursal);
     //    // ICollection* listarSecciones();
 
+#endif /* EMPRESA_H */

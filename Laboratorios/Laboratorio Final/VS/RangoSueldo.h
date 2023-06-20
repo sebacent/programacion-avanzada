@@ -1,3 +1,5 @@
+#ifndef RANGOSUELDO_H
+#define RANGOSUELDO_H
 
 class RangoSueldo {
     public:
@@ -10,9 +12,11 @@ class RangoSueldo {
 
 int RangoSueldo::getMinimo(){
     return sueldoMin;
+
 };
 
 int RangoSueldo::getMaximo(){
     return sueldoMax;
 }; 
 
+#endif /* RANGOSUELDO_H */

@@ -34,7 +34,7 @@ public:
      */
     virtual void remove(IKey *k) = 0;
     
-    /**
+    /** 
      * Busca un elemento en el diccionario
      * @param k la clave a buscar
      * @return el ICollectible que se agregó con add o NULL si no hay tal objeto

@@ -1,3 +1,6 @@
+#ifndef SECCION_H
+#define SECCION_H
+
 // #include "ICollection/interfaces/ICollectible.h"
 // #include "ICollection/interfaces/ICollection.h"
 // #include "ICollection/interfaces/IDictionary.h"
@@ -14,7 +17,7 @@ class Seccion : public ICollectible {
     std::string nombre;
     std::string telefono;
     int idSeccion;
-    IDictionary * ofertas;
+    OrderedDictionary * ofertas;
    // Persona* encargado; 
   public:
     Seccion(std::string _nombre, std::string _telefono, int _idSeccion);
@@ -34,3 +37,5 @@ class Seccion : public ICollectible {
     //Persona* getEncargado();
     //void setEncargado(Persona* _encargado);
 };
+
+#endif /* SECCION_H */

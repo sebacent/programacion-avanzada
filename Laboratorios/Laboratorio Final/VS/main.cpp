@@ -40,7 +40,11 @@ int main(){
     std::cout<<"ELIMINO SECCION"<<std::endl;
     suc2->eliminarSeccion(1);
     suc2->listarSecciones();
-    
+
+    Date::Date(01,01,01);
+    std::cout<<"FECHA"<<std::endl;  
+
+    /*
     Estudiante * estudiante = new Estudiante("nombre", "1234", "direccion", Date(1,1,1), "telefono", 1); 
     std::cout<<"ESTUDIANTE"<<std::endl;
     std::cout<<estudiante->getNombre()<<std::endl;
@@ -51,7 +55,7 @@ int main(){
     std::cout<<estudiante->getFechaNacimiento().getAnio()<<std::endl;
     std::cout<<estudiante->getTelefono()<<std::endl;
     std::cout<<estudiante->getCreditos()<<std::endl;
-    
+    /*
 
     std::cout<<"FINISH"<<std::endl;
     return 0;

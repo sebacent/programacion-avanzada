@@ -1,12 +1,15 @@
 INTERFACES = ICollection/interfaces/
 COLECCIONES = ICollection/collections/
-OBJETOS = Seccion.o Sucursal.o Empresa.o main.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
+OBJETOS = Date.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o Empresa.o Oferta.o main.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
 
 
 
 
 all: $(OBJETOS)
 	g++ $(OBJETOS) -o programa
+
+ICollection.o: $(INTERFACES)ICollection.h
+	g++ -Wall -g -c $(INTERFACES)ICollection.cpp
 
 ICollectible.o: $(INTERFACES)ICollectible.h
 	g++ -Wall -g -c $(INTERFACES)ICollectible.cpp 
@@ -38,8 +41,26 @@ IDictionary.o: $(INTERFACES)IDictionary.h IIterator.o ICollectible.o IKey.o
 OrderedDictionary.o: $(COLECCIONES)OrderedDictionary.h IDictionary.o OrderedDictionaryEntry.o ListIterator.o
 	g++ -Wall -g -c $(COLECCIONES)OrderedDictionary.cpp
 
-# Animal.o: ICollectible.o
-# 	g++ -Wall -g -c Animal.cpp
+Date.o: ICollectible.o 
+	g++ -Wall -g -c Date.cpp
+
+Inscripcion.o: ICollectible.o 
+	g++ -Wall -g -c Inscripcion.cpp
+
+Asignatura.o: ICollectible.o
+	g++ -Wall -g -c Asignatura.cpp	
+
+Carre.o: ICollectible.o 
+	g++ -Wall -g -c Carre.cpp
+
+Persona.o: ICollectible.o 
+	g++ -Wall -g -c Persona.cpp
+
+Encargado.o: Persona.o 
+	g++ -Wall -g -c Encargado.cpp
+
+Estudiante.o: Persona.o Carre.o OrderedDictionary.o
+	g++ -Wall -g -c Estudiante.cpp
 
 Seccion.o: ICollectible.o 
 	g++ -Wall -g -c Seccion.cpp
@@ -50,19 +71,18 @@ Sucursal.o: Seccion.o OrderedDictionary.o
 Empresa.o: Sucursal.o ICollectible.o OrderedDictionary.o
 	g++ -Wall -g -c Empresa.cpp
 
-main.o: Empresa.o
+Oferta.o : Inscripcion.o ICollectible.o ICollection.o OrderedDictionary.o 
+	g++ -Wall -g -c Oferta.cpp
+
+main.o: Empresa.o Oferta.o
 	g++ -Wall -g -c main.cpp
 
 clean:
 	rm -f programa *.o $(INTERFACES)*.o $(COLECCIONES)*.o
-	
-clean.o: 
-	rm -f *.o $(INTERFACES)*.o $(COLECCIONES)*.o	 		
 run:
 	make clean
 	make
 	clear
-	make clean.o
 	./programa
 
 

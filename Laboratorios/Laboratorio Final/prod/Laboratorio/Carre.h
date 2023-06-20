@@ -1,7 +1,3 @@
-#ifndef CARRERA_H
-#define CARRERA_H
-
-
 #include <iostream>
 #include "ICollection/interfaces/ICollectible.h"
 #include "ICollection/interfaces/IDictionary.h"
@@ -19,5 +15,3 @@ class Carrera : public  ICollectible {
     std::string getNombre();
     int getid();
 };
-
-#endif /* CARRERA_H */
