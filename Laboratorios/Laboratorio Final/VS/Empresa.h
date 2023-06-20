@@ -23,9 +23,9 @@ class Empresa : public ICollectible {
         IDictionary * sucursales; 
         //List *sucursales; 
     public:
-        Empresa(std::string _nombre,int _rut);
+        Empresa(int _rut, std::string _nombre);
         ~Empresa();
-        Empresa();
+        //Empresa();
         //SETS
         void setRUT(int _RUT);
         void setNombre(std::string _nombre);
@@ -34,11 +34,13 @@ class Empresa : public ICollectible {
         std::string getNombre(); 
 
         //OPERACIONES DE SUCURSALES
-        void addSucursal(Sucursal * _sucursal);
+        void addSucursal(std::string _nombre, std::string _direccion, std::string _telefono, int _idSucursal);
         std::string getInfoSuc(int _idSuc);
         void deleteSucursal(int _idSuc);
         void ListarSucursales();
         void eliminarSucursales();
+        Sucursal* buscarSucursal(int _idSuc);
+        void agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion);
 };
 
 

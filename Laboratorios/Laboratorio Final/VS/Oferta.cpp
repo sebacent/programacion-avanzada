@@ -9,6 +9,9 @@ OfertaLaboral::OfertaLaboral( std::string _titulo, std::string _descripcion, int
       this->fechaInicio = _fechaInicio;
       this->fechaFin = _fechaFin;
       this->rangoSalarial = _rangoSalarial;
+        this->asignaturas = new OrderedDictionary();
+        this->inscripciones = new OrderedDictionary();
+
     };
 OfertaLaboral::~OfertaLaboral(){};
 
@@ -102,6 +105,11 @@ OrderedDictionary* OfertaLaboral::getAsignaturas(){
 
 OrderedDictionary* OfertaLaboral::getInscripciones(){
     return this->inscripciones;
+}
+
+DtOferta* OfertaLaboral::getDtOferta(){
+    DtOferta* dtOferta = new DtOferta(this->titulo, this->descripcion, this->cantPuestos, this->idExpediente, this->horas, this->fechaInicio, this->fechaFin, this->rangoSalarial, this->asignaturas);
+    return dtOferta;
 }
 
 // ICollection* OfertaLaboral::getContrataciones(){

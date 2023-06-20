@@ -1,9 +1,9 @@
 #include "Inscripcion.h"
 
-Inscripcion::Inscripcion(int _id, Date* _fecha, List* _entrevistas) {
+Inscripcion::Inscripcion(int _id, Date* _fecha, OrderedDictionary* _entrevistas) {
     this->id = _id;
     this->fecha = _fecha;
-    this->entrevistas = new List();
+    this->entrevistas = new OrderedDictionary();
     this->entrevistas = _entrevistas;
 }
 
@@ -30,16 +30,17 @@ void Inscripcion::setFecha(Date* _fecha) {
     this->fecha = _fecha;
 }
 
-List* Inscripcion::getEntrevistas() {
+OrderedDictionary* Inscripcion::getEntrevistas() {
     return this->entrevistas;
 }
 
-void Inscripcion::setEntrevistas(List* _entrevistas) {
+void Inscripcion::setEntrevistas(OrderedDictionary* _entrevistas) {
     this->entrevistas = _entrevistas;
 }
 
 void Inscripcion::agregarEntrevista(Date* _fecha) {
-
-    this->entrevistas->add(_fecha);
+    IKey *key = new Integer(_fecha->getDia() + _fecha->getMes() + _fecha->getAnio());
+    this->entrevistas->add(key, _fecha);
+    delete key;
     
 }

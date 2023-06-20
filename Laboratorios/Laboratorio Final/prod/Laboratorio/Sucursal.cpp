@@ -38,10 +38,11 @@ void Sucursal::setidSucursal(int _idSucursal) {
     this->idSucursal = _idSucursal;
 }
 
-void Sucursal::agregarSeccion(Seccion* _seccion) {
-    IKey* KSeccion = new Integer(_seccion->getidSeccion());
+void Sucursal::agregarSeccion(std::string _nombre, std::string _telefono,int _idSeccion) {
+    IKey* KSeccion = new Integer(_idSeccion);
+    Seccion* _seccion = new Seccion(_nombre,_telefono,_idSeccion);
     this->secciones->add(KSeccion, _seccion);
-    delete KSeccion;
+    //delete KSeccion;
 }
 void Sucursal::eliminarSeccion(int _idSeccion) {
     IKey* KSeccion = new Integer(_idSeccion);
@@ -61,7 +62,19 @@ void Sucursal::listarSecciones(){
         std::cout << "  Nombre: " << seccion->getNombre() << std::endl;
         std::cout << "  Telefono: " << seccion->getTelefono() << std::endl;
         std::cout << "  ID: " << seccion->getidSeccion() << std::endl;
+        std::cout << "  ------------------- " << std::endl;
         it->next();
     }
     delete it;
+}
+
+void Sucursal::eliminarSecciones(){
+    IIterator* it = secciones->getIterator();
+    while(it->hasCurrent()){
+        Seccion* seccion = (Seccion*)it->getCurrent();
+        delete seccion;
+        it->next();
+    }
+    delete it;
+    //this->secciones->empty();
 }

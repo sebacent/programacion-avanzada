@@ -4,18 +4,9 @@
 #define OFERTALABORAL_H
 // #include "ICollection/interfaces/IDictionary.h"
 // #include "ICollection/collections/List.h"
-#include "ICollection/interfaces/ICollectible.h"
-#include "ICollection/interfaces/ICollection.h"
-#include "ICollection/collections/OrderedDictionary.h"
-#include "ICollection/Integer.h"
-
-#include "Date.h"
-#include "RangoSueldo.h"
-#include <string>
-#include "Asignatura.h"
-#include "Inscripcion.h"
+#include "DtOferta.h"
 //#include "Contratacion.h"
-
+#include "Inscripcion.h"
 
 //FWD
 class Asignatura;
@@ -70,7 +61,7 @@ class OfertaLaboral : public ICollectible {
     OrderedDictionary* getInscripciones();
     //ICollection* getContrataciones();
 
-
+    DtOferta* getDtOferta();
  
 };
 #endif /* OFERTALABORAL_H */

@@ -1,9 +1,9 @@
 INTERFACES = ICollection/interfaces/
 COLECCIONES = ICollection/collections/
-OBJETOS = Date.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o Empresa.o Oferta.o main.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
+OBJETOS = Date.o RangoSueldo.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o Empresa.o DtOferta.o Oferta.o main.o ISistema.o Sistema.o Factory.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
 
 
-
+#List.o
 
 all: $(OBJETOS)
 	g++ $(OBJETOS) -o programa
@@ -41,13 +41,19 @@ IDictionary.o: $(INTERFACES)IDictionary.h IIterator.o ICollectible.o IKey.o
 OrderedDictionary.o: $(COLECCIONES)OrderedDictionary.h IDictionary.o OrderedDictionaryEntry.o ListIterator.o
 	g++ -Wall -g -c $(COLECCIONES)OrderedDictionary.cpp
 
+#List.o : $(COLECCIONES)List.h ICollection.o ListNode.o ListIterator.o
+#	g++ -Wall -g -c $(COLECCIONES)List.cpp	
+
+RangoSueldo.o: ICollectible.o 
+	g++ -Wall -g -c RangoSueldo.cpp
+
 Date.o: ICollectible.o 
 	g++ -Wall -g -c Date.cpp
 
-Inscripcion.o: ICollectible.o 
+Inscripcion.o: ICollectible.o  Date.o  OrderedDictionary.o#List.o
 	g++ -Wall -g -c Inscripcion.cpp
 
-Asignatura.o: ICollectible.o
+Asignatura.o: ICollectible.o OrderedDictionary.o
 	g++ -Wall -g -c Asignatura.cpp	
 
 Carre.o: ICollectible.o 
@@ -71,10 +77,22 @@ Sucursal.o: Seccion.o OrderedDictionary.o
 Empresa.o: Sucursal.o ICollectible.o OrderedDictionary.o
 	g++ -Wall -g -c Empresa.cpp
 
-Oferta.o : Inscripcion.o ICollectible.o ICollection.o OrderedDictionary.o 
+DtOferta.o: ICollectible.o 
+	g++ -Wall -g -c DtOferta.cpp
+
+Oferta.o : DtOferta.o Inscripcion.o ICollectible.o ICollection.o OrderedDictionary.o 
 	g++ -Wall -g -c Oferta.cpp
 
-main.o: Empresa.o Oferta.o
+ISistema.o: ISistema.h Empresa.o Oferta.o
+	g++ -c ISistema.cpp
+
+Sistema.o: ISistema.o Empresa.o Oferta.o
+	g++ -Wall -g -c Sistema.cpp
+
+Factory.o: Factory.h ISistema.o Sistema.o
+	g++ -c Factory.cpp	
+
+main.o: ISistema.o Factory.o
 	g++ -Wall -g -c main.cpp
 
 clean:

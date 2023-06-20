@@ -1,7 +1,7 @@
 #include "Empresa.h"
 
 // using the Empresa.h create the getters and setters   for the class Empresa
-Empresa::Empresa(std::string _nombre, int _rut) {
+Empresa::Empresa(int _rut,std::string _nombre) {
     this->nombre = _nombre;
     this->RUT = _rut;
     this->sucursales = new OrderedDictionary(); 
@@ -32,11 +32,12 @@ void Empresa::setRUT(int _rut)
     this->RUT = _rut;
 };
 
-void Empresa::addSucursal(Sucursal * _sucursal)
+void Empresa::addSucursal(std::string _nombre, std::string _direccion, std::string _telefono, int _idSucursal)
 {
-    IKey * key = new Integer(_sucursal->getidSucursal());
+    Sucursal * _sucursal = new Sucursal(_nombre,_direccion,_telefono,_idSucursal);
+    IKey * key = new Integer(_idSucursal);
     this->sucursales->add(key,_sucursal);
-    delete key;
+    //delete key;
 };
 
 void Empresa::deleteSucursal(int _idSuc)
@@ -58,9 +59,9 @@ void Empresa::ListarSucursales(){
     
     IIterator * it = this->sucursales->getIterator();
     while(it->hasCurrent()){
-        Sucursal * suc = dynamic_cast<Sucursal*>(it->getCurrent());
-        std::cout<<"Sucursal: "<<suc->getNombre()<<std::endl;
-        std::cout<<"ID: "<<suc->getidSucursal()<<std::endl;
+        Sucursal * suc = (Sucursal*)it->getCurrent();
+        std::cout<<"    Sucursal: "<<suc->getNombre();
+        std::cout<<", ID: "<<suc->getidSucursal()<<std::endl;
         it->next();
     }
     delete it;
@@ -70,9 +71,27 @@ void Empresa::eliminarSucursales(){
     IIterator * it = this->sucursales->getIterator();
     while(it->hasCurrent()){
         Sucursal * suc = dynamic_cast<Sucursal*>(it->getCurrent());
-        suc->eliminarSecciones();
-        this->sucursales->remove(suc);
+        //suc->eliminarSecciones();
+        IKey * key = new Integer(suc->getidSucursal());
+        this->sucursales->remove(key);
+        delete key;
         it->next();
     }
+    
     delete it;
+};
+
+
+void Empresa::agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion){
+    IKey * key = new Integer(_idSuc);
+    Sucursal * suc = (Sucursal*) this->sucursales->find(key);
+    suc->agregarSeccion(_nombre,_telefono,_idSeccion);
+    //delete key;
+};
+
+Sucursal* Empresa::buscarSucursal(int _idSuc){
+    IKey * key = new Integer(_idSuc);
+    Sucursal * suc = (Sucursal*) this->sucursales->find(key);
+    //delete key;
+    return suc;
 };
