@@ -20,7 +20,7 @@ class Sistema : public ISistema {
     private:
         static Sistema * instancia;
         Sistema ();
-        ~Sistema ();
+        
         // IDictionary* empresas;
         // IDictionary* estudiantes;
         // IDictionary* ofertas;
@@ -31,7 +31,7 @@ class Sistema : public ISistema {
         OrderedDictionary* asignaturas;        
     public:
         static Sistema * getInstancia();
-
+        ~Sistema ();
         //AGREGAR A COLECCIONES
         void addEmpresa(int rut,std::string nombre);
         void addEstudiante(std::string ci, std::string nombre, Date fechaNac, std::string telefono, int creditos);

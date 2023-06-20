@@ -12,6 +12,7 @@
 #include "Oferta.h"
 #include <string>
 
+class Oferta;
 class Seccion : public ICollectible {
   private:
     std::string nombre;

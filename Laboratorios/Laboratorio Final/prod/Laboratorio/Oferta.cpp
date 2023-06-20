@@ -1,18 +1,19 @@
 #include "Oferta.h"
 
 OfertaLaboral::OfertaLaboral( std::string _titulo, std::string _descripcion, int _cantPuestos, int _idExpediente, int _horas, Date* _fechaInicio, Date* _fechaFin, RangoSueldo* _rangoSalarial) {
-      this->descripcion = _descripcion;
-      this->titulo = _titulo;
-      this->cantPuestos = _cantPuestos;
-      this->idExpediente = _idExpediente;
-      this->horas = _horas;
-      this->fechaInicio = _fechaInicio;
-      this->fechaFin = _fechaFin;
-      this->rangoSalarial = _rangoSalarial;
-        this->asignaturas = new OrderedDictionary();
-        this->inscripciones = new OrderedDictionary();
-
-    };
+    this->descripcion = _descripcion;
+    this->titulo = _titulo;
+    this->cantPuestos = _cantPuestos;
+    this->idExpediente = _idExpediente;
+    this->horas = _horas;
+    this->fechaInicio = _fechaInicio;
+    this->fechaFin = _fechaFin;
+    this->rangoSalarial = _rangoSalarial;
+    this->asignaturas = new OrderedDictionary();
+    this->inscripciones = new OrderedDictionary();
+    
+    this->seccion = nullptr;
+};
 OfertaLaboral::~OfertaLaboral(){};
 
 
@@ -40,6 +41,11 @@ Date* OfertaLaboral::getFechaFin() {
 int OfertaLaboral::getCantPuestos() {
     return cantPuestos;
 }
+
+Seccion* OfertaLaboral::getSeccion() {
+    return seccion;
+}
+
 void OfertaLaboral::setIdExpediente(int _idExpediente){
     this->idExpediente = _idExpediente;
 }
@@ -98,6 +104,10 @@ void OfertaLaboral::eliminarInscripcion(Inscripcion* _inscripcion){
 // void OfertaLaboral::eliminarContratacion(Contratacion* _contratacion){
 //     this->contrataciones->remove(_contratacion);
 // }
+
+void OfertaLaboral::setSeccion(Seccion* _seccion){
+    this->seccion = _seccion;
+}    
 
 OrderedDictionary* OfertaLaboral::getAsignaturas(){
     return this->asignaturas;

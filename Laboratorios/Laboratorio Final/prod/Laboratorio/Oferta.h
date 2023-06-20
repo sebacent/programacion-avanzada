@@ -7,12 +7,13 @@
 #include "DtOferta.h"
 //#include "Contratacion.h"
 #include "Inscripcion.h"
+#include "Seccion.h"
 
 //FWD
 class Asignatura;
 class Inscripcion;
 class Contratacion;
-
+class Seccion;
 
 class OfertaLaboral : public ICollectible {
   private:
@@ -26,6 +27,7 @@ class OfertaLaboral : public ICollectible {
     int cantPuestos;
     OrderedDictionary *asignaturas;
     OrderedDictionary *inscripciones;
+    Seccion* seccion;
     //ICollection *contrataciones;
   public:
     OfertaLaboral(std::string _titulo, std::string _descripcion, int _cantPuestos, int _idExpediente, int _horas, Date* _fechaInicio, Date* _fechaFin, RangoSueldo* _rangoSalarial);
@@ -39,6 +41,7 @@ class OfertaLaboral : public ICollectible {
     Date* getFechaInicio();
     Date* getFechaFin();
     int getCantPuestos();
+    Seccion * getSeccion();
     
     void setIdExpediente(int _idExpediente);
     void setTitulo(std::string _titulo);
@@ -48,6 +51,7 @@ class OfertaLaboral : public ICollectible {
     void setFechaFin(Date* _fechaFin);
     void setHoras(int _horas);
     void setCantPuestos(int _cantPuestos);
+    void setSeccion(Seccion* _seccion);
     
     void agregarAsignatura(Asignatura* _asignatura);
     void agregarInscripcion(Inscripcion* _inscripcion);

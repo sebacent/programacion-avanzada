@@ -40,6 +40,7 @@ class Empresa : public ICollectible {
         void ListarSucursales();
         void eliminarSucursales();
         Sucursal* buscarSucursal(int _idSuc);
+        void agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion);
 };
 
 

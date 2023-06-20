@@ -11,14 +11,14 @@ Sistema::Sistema(){
 }
 
 
-Sistema::~Sistema (){};
+Sistema::~Sistema (){}
 
 
 Sistema * Sistema::getInstancia(){
-    if(instancia == nullptr)
+    if(instancia == NULL)
         instancia = new Sistema();
     return instancia;
-};
+}
 
 
 // int Sistema::comprarPuntos(int idCuenta, int monto){
@@ -35,7 +35,7 @@ void Sistema::addEmpresa(int rut,std::string nombre){
 
 
     //delete empresa;
-};
+}
 
 void Sistema::ListarEmpresas(){
 
@@ -59,7 +59,7 @@ void Sistema::ListarSucursales(int _rutEmp){
 
     emp->ListarSucursales();
     delete key;
-};
+}
 
 Empresa* Sistema::buscarEmpresa(int _rutEmp){
     IKey * key = new Integer(_rutEmp);
@@ -68,4 +68,4 @@ Empresa* Sistema::buscarEmpresa(int _rutEmp){
     std::cout<<", RUT: "<<emp->getRUT()<<std::endl;
     return emp;
 
-};
+}

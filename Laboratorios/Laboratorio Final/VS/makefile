@@ -80,14 +80,16 @@ Empresa.o: Sucursal.o ICollectible.o OrderedDictionary.o
 DtOferta.o: ICollectible.o 
 	g++ -Wall -g -c DtOferta.cpp
 
-Oferta.o : DtOferta.o Inscripcion.o ICollectible.o ICollection.o OrderedDictionary.o 
+Oferta.o : DtOferta.o Inscripcion.o Seccion.o ICollectible.o ICollection.o OrderedDictionary.o 
 	g++ -Wall -g -c Oferta.cpp
 
-ISistema.o: ISistema.h Empresa.o Oferta.o
+ISistema.o: ISistema.h
 	g++ -c ISistema.cpp
 
-Sistema.o: ISistema.o Empresa.o Oferta.o
+Sistema.o: ISistema.o Empresa.o Oferta.o Sistema.h
 	g++ -Wall -g -c Sistema.cpp
+
+	
 
 Factory.o: Factory.h ISistema.o Sistema.o
 	g++ -c Factory.cpp	

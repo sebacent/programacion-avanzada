@@ -4,7 +4,8 @@
 #include "Empresa.h"
 #include "Encargado.h"
 #include "Estudiante.h"
-#include "Sistema.h"
+#include "Factory.h"
+#include "ISistema.h"
 //using namespace std;
 
 int main(){
@@ -36,7 +37,7 @@ int main(){
     std::cout<<"OPCION INGRESADA: "<<opc<<std::endl;
     
     //CASO DE USO: ALTA OFERTA
-    Sistema * s = Sistema::getInstancia();    
+    ISistema * s = Factory::getSistema();    
     std::cout<<"COMPILA WACHO"<<std::endl;
     if (s == NULL)
         std::cout<<"SISTEMA ES NULL"<<std::endl;

@@ -82,10 +82,10 @@ void Empresa::eliminarSucursales(){
 };
 
 
-void Empresa::agregarSeccion(int _idSuc, std::string _nombre, int _idSeccion){
+void Empresa::agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion){
     IKey * key = new Integer(_idSuc);
     Sucursal * suc = (Sucursal*) this->sucursales->find(key);
-    suc->agregarSeccion(_nombre,_idSeccion);
+    suc->agregarSeccion(_nombre,_telefono,_idSeccion);
     //delete key;
 };
 
