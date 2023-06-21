@@ -78,3 +78,8 @@ void Sucursal::eliminarSecciones(){
     delete it;
     //this->secciones->empty();
 }
+
+void Sucursal::linkOferta(int _idSeccion, OfertaLaboral* _Oferta){
+    Seccion* seccion = this->buscarSeccion(_idSeccion);
+    seccion->agregarOferta(_Oferta);
+}

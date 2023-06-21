@@ -34,3 +34,15 @@ void Seccion::setidSeccion(int _idSeccion) {
 // void Seccion::setEncargado(Persona* _encargado) {
 //     this->encargado = _encargado;
 // }
+
+void Seccion::agregarOferta(OfertaLaboral* _oferta) {
+    IKey* KOferta = new Integer(_oferta->getIdExpediente());
+    this->ofertas->add(KOferta, _oferta);
+    //delete KOferta;
+}
+
+void Seccion::eliminarOferta(int _idOferta) {
+    IKey* KOferta = new Integer(_idOferta);
+    this->ofertas->remove(KOferta);
+    delete KOferta;
+}

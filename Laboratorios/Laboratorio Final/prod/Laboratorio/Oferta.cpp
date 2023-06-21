@@ -1,6 +1,6 @@
 #include "Oferta.h"
 
-OfertaLaboral::OfertaLaboral( std::string _titulo, std::string _descripcion, int _cantPuestos, int _idExpediente, int _horas, Date* _fechaInicio, Date* _fechaFin, RangoSueldo* _rangoSalarial) {
+OfertaLaboral::OfertaLaboral(int _idExpediente, std::string _titulo, std::string _descripcion, int _cantPuestos, int _horas, Date* _fechaInicio, Date* _fechaFin, RangoSueldo* _rangoSalarial) {
     this->descripcion = _descripcion;
     this->titulo = _titulo;
     this->cantPuestos = _cantPuestos;
@@ -11,8 +11,7 @@ OfertaLaboral::OfertaLaboral( std::string _titulo, std::string _descripcion, int
     this->rangoSalarial = _rangoSalarial;
     this->asignaturas = new OrderedDictionary();
     this->inscripciones = new OrderedDictionary();
-    
-    this->seccion = nullptr;
+    this->seccion = NULL;
 };
 OfertaLaboral::~OfertaLaboral(){};
 
@@ -117,10 +116,10 @@ OrderedDictionary* OfertaLaboral::getInscripciones(){
     return this->inscripciones;
 }
 
-DtOferta* OfertaLaboral::getDtOferta(){
-    DtOferta* dtOferta = new DtOferta(this->titulo, this->descripcion, this->cantPuestos, this->idExpediente, this->horas, this->fechaInicio, this->fechaFin, this->rangoSalarial, this->asignaturas);
-    return dtOferta;
-}
+// DtOferta* OfertaLaboral::getDtOferta(){
+//     DtOferta* dtOferta = new DtOferta(this->titulo, this->descripcion, this->cantPuestos, this->idExpediente, this->horas, this->fechaInicio, this->fechaFin, this->rangoSalarial, this->asignaturas);
+//     return dtOferta;
+// }
 
 // ICollection* OfertaLaboral::getContrataciones(){
 //     return this->contrataciones;

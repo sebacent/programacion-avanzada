@@ -10,8 +10,9 @@
 #include <string>
 #include "ICollection/interfaces/ICollectible.h"
 #include "ICollection/collections/OrderedDictionary.h"
+#include "Oferta.h"
 
-
+class OfertaLaboral;
 
 class Asignatura : public  ICollectible {
   private:
@@ -25,6 +26,8 @@ class Asignatura : public  ICollectible {
     std::string getNombre();
     int getId();
     int getcreditos();
+    void linkOferta(OfertaLaboral* _oferta);
+    void unlinkOferta(int _idOferta);
 };
 
 #endif /* ASIGNATURA_H */

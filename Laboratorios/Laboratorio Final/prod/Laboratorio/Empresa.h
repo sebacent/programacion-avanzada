@@ -12,7 +12,8 @@
 // #include "ICollection/interfaces/ICollectible.h"
 // #include "ICollection/collections/OrderedDictionary.h"
 //#include <string> 
-#include "Sucursal.h"
+#include "DtEmpresa.h"
+//#include "ICollection/collections/OrderedDictionary.h"
 
 
 class Empresa : public ICollectible {
@@ -20,7 +21,7 @@ class Empresa : public ICollectible {
     private: 
         int RUT;
         std::string nombre; 
-        IDictionary * sucursales; 
+        OrderedDictionary * sucursales; 
         //List *sucursales; 
     public:
         Empresa(int _rut, std::string _nombre);
@@ -41,6 +42,11 @@ class Empresa : public ICollectible {
         void eliminarSucursales();
         Sucursal* buscarSucursal(int _idSuc);
         void agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion);
+
+        //ALTA OFERTA
+        void linkOferta(OfertaLaboral* _Oferta , int _idSuc , int _idSeccion);
+
+        DtEmpresa* getDtEmpresa();
 };
 
 

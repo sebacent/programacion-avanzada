@@ -2,7 +2,7 @@
 #define ISISTEMA_H
 
 #include <iostream>
-
+#include "DtEmpresa.h"
 
 class ISistema {
     public:
@@ -10,7 +10,7 @@ class ISistema {
         //virtual std::string getNombreSocio () = 0;
         ~ISistema();
         virtual void ListarEmpresas() = 0;
-        virtual DtEmpresa * BuscarEmpresa(int) = 0;
+        //virtual DtEmpresa * BuscarEmpresa(int) = 0;
         //virtual void addSucursal(int, std::string) = 0;
 };
 

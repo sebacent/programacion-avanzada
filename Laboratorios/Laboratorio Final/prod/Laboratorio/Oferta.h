@@ -30,7 +30,7 @@ class OfertaLaboral : public ICollectible {
     Seccion* seccion;
     //ICollection *contrataciones;
   public:
-    OfertaLaboral(std::string _titulo, std::string _descripcion, int _cantPuestos, int _idExpediente, int _horas, Date* _fechaInicio, Date* _fechaFin, RangoSueldo* _rangoSalarial);
+    OfertaLaboral(int _idExpediente, std::string _titulo, std::string _descripcion, int _cantPuestos, int _horas, Date* _fechaInicio, Date* _fechaFin, RangoSueldo* _rangoSalarial);
     ~OfertaLaboral();
     
     int getIdExpediente();
@@ -65,7 +65,7 @@ class OfertaLaboral : public ICollectible {
     OrderedDictionary* getInscripciones();
     //ICollection* getContrataciones();
 
-    DtOferta* getDtOferta();
+    //DtOferta* getDtOferta();
  
 };
 #endif /* OFERTALABORAL_H */

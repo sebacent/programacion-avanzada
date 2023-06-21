@@ -1,6 +1,6 @@
 INTERFACES = ICollection/interfaces/
 COLECCIONES = ICollection/collections/
-OBJETOS = Date.o RangoSueldo.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o Empresa.o DtOferta.o Oferta.o main.o ISistema.o Sistema.o Factory.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
+OBJETOS = Date.o RangoSueldo.o Carrera.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o DtEmpresa.o Empresa.o DtOferta.o Oferta.o main.o ISistema.o Sistema.o Factory.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
 
 
 #List.o
@@ -53,11 +53,11 @@ Date.o: ICollectible.o
 Inscripcion.o: ICollectible.o  Date.o  OrderedDictionary.o#List.o
 	g++ -Wall -g -c Inscripcion.cpp
 
-Asignatura.o: ICollectible.o OrderedDictionary.o
+Asignatura.o: Oferta.o ICollectible.o OrderedDictionary.o
 	g++ -Wall -g -c Asignatura.cpp	
 
-Carre.o: ICollectible.o 
-	g++ -Wall -g -c Carre.cpp
+Carrera.o: ICollectible.o 
+	g++ -Wall -g -c Carrera.cpp
 
 Persona.o: ICollectible.o 
 	g++ -Wall -g -c Persona.cpp
@@ -74,6 +74,9 @@ Seccion.o: ICollectible.o
 Sucursal.o: Seccion.o OrderedDictionary.o
 	g++ -Wall -g -c Sucursal.cpp	
 
+DtEmpresa.o: Sucursal.o ICollectible.o OrderedDictionary.o
+	g++ -Wall -g -c DtEmpresa.cpp
+
 Empresa.o: Sucursal.o ICollectible.o OrderedDictionary.o
 	g++ -Wall -g -c Empresa.cpp
 
@@ -83,13 +86,12 @@ DtOferta.o: ICollectible.o
 Oferta.o : DtOferta.o Inscripcion.o Seccion.o ICollectible.o ICollection.o OrderedDictionary.o 
 	g++ -Wall -g -c Oferta.cpp
 
-ISistema.o: ISistema.h
+ISistema.o: DtEmpresa.o ISistema.h
 	g++ -c ISistema.cpp
 
 Sistema.o: ISistema.o Empresa.o Oferta.o Sistema.h
 	g++ -Wall -g -c Sistema.cpp
 
-	
 
 Factory.o: Factory.h ISistema.o Sistema.o
 	g++ -c Factory.cpp	

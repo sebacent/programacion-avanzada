@@ -7,6 +7,93 @@
 #include "Factory.h"
 #include "ISistema.h"
 //using namespace std;
+/* 
+int altaOferta(ISistema* sistema){
+    std::string titulo, str_idExpediente, descripcion, str_cantPuestos, str_horas, str_DiaFechaInicio,str_MesFechaInicio,str_AnioFechaInicio, str_DiaFechaFin,str_MesFechaFin,str_AnioFechaFin, str_rangoMinSalarial, str_rangoMaxSalarial, str_idAsignatura;
+    int cantPuestos, horas, idExpediente, rangoMinSalarial, rangoMaxSalarial, idAsignatura, diaFechaInicio, mesFechaInicio, anioFechaInicio, diaFechaFin, mesFechaFin, anioFechaFin, idEmpresa, idSeccion, idSucursal;
+    Date* fechaInicio;
+    Date* fechaFin;
+    RangoSueldo* rangoSalarial;
+    int asignaturas[50];
+    int i = 0;
+    bool salgo = false;
+    std::string str_idEmpresa, str_idSeccion, str_idSucursal;
+    
+    std::cout<<"Ingrese el id de la empresa: "<< std::endl;
+    sistema->ListarEmpresas();
+    std::getline(std::cin, str_idEmpresa);
+    idEmpresa = std::stoi(str_idEmpresa);
+
+    std::cout<<"Ingrese el id de la sucursal: "<< std::endl;
+    sistema->ListarSucursales(idEmpresa);
+    std::getline(std::cin, str_idSucursal);
+    idSucursal = std::stoi(str_idSucursal);
+
+    std::cout<<"Ingrese el id de la seccion: "<< std::endl;
+    sistema->ListarSecciones(idEmpresa, idSucursal);
+    std::getline(std::cin, str_idSeccion);
+    idSeccion = std::stoi(str_idSeccion);
+
+    std::cout<<"Ingrese el id del expediente de la oferta: "<< std::endl;
+    std::getline(std::cin, str_idExpediente);
+    idExpediente = std::stoi(str_idExpediente);
+
+    std::cout<<"Ingrese el titulo de la oferta: "<< std::endl;
+    std::getline(std::cin, titulo);
+
+    std::cout<<"Ingrese la descripcion de la oferta: "<< std::endl;
+    std::getline(std::cin, descripcion);
+
+    std::cout<<"Ingrese la cantidad de puestos de la oferta: "<< std::endl;
+    std::getline(std::cin, str_cantPuestos);
+    cantPuestos = std::stoi(str_cantPuestos);
+
+    std::cout<<"Ingrese la cantidad de horas de la oferta: "<< std::endl;
+    std::getline(std::cin, str_horas);
+    horas = std::stoi(str_horas);
+
+    std::cout<<"Ingrese la fecha de inicio de la oferta: "<< std::endl;
+        std::cout<<"Ingrese el dia: "<< std::endl;
+        std::getline(std::cin, str_DiaFechaInicio);
+        std::cout<<"Ingrese el mes: "<< std::endl;
+        std::getline(std::cin, str_MesFechaInicio);
+        std::cout<<"Ingrese el anio: "<< std::endl;
+        std::getline(std::cin, str_AnioFechaInicio);
+        fechaInicio = new Date(std::stoi(str_DiaFechaInicio), std::stoi(str_MesFechaInicio), std::stoi(str_AnioFechaInicio));
+
+    std::cout<<"Ingrese la fecha de fin de la oferta: "<< std::endl;
+        std::cout<<"Ingrese el dia: "<< std::endl;
+        std::getline(std::cin, str_DiaFechaFin);
+        std::cout<<"Ingrese el mes: "<< std::endl;
+        std::getline(std::cin, str_MesFechaFin);
+        std::cout<<"Ingrese el anio: "<< std::endl;
+        std::getline(std::cin, str_AnioFechaFin);
+        fechaFin = new Date(std::stoi(str_DiaFechaFin), std::stoi(str_MesFechaFin), std::stoi(str_AnioFechaFin));
+
+    std::cout<<"Ingrese el rango salarial de la oferta: "<< std::endl;
+        std::cout<<"Ingrese el rango minimo: "<< std::endl;
+        std::getline(std::cin, str_rangoMinSalarial);
+        std::cout<<"Ingrese el rango maximo: "<< std::endl;
+        std::getline(std::cin, str_rangoMaxSalarial);
+        rangoSalarial = new RangoSueldo(std::stoi(str_rangoMinSalarial), std::stoi(str_rangoMaxSalarial));
+
+    std::cout<<"Ingrese las asignaturas de la oferta de una en una: (INGRESE X PARA SALIR)"<< std::endl;
+        sistema->listarAsignaturas();
+        while(!salgo){
+            std::getline(std::cin, str_idAsignatura);
+            if(str_idAsignatura == "X"){
+                salgo = true;
+                break;
+            }else{
+                asignaturas[i] = std::stoi(str_idAsignatura);
+                i++;
+            }    
+        }
+
+    sistema->addOferta(idExpediente, titulo, descripcion, cantPuestos, horas, fechaInicio, fechaFin, rangoSalarial, idEmpresa,  idSucursal,  idSeccion, asignaturas);
+    return 0;
+}
+*/
 
 int main(){
 
@@ -58,12 +145,12 @@ int main(){
     s->ListarEmpresas();
     // Empresa * emp;
     // emp = (Empresa *) s->empresas->find(ew Integer(1234));
-    Empresa * emp = s->buscarEmpresa(1234);
-    emp->addSucursal("SUCURSAL1", "DIRECCION1", "TELEFONO1", 1);
-    emp->addSucursal("SUCURSAL2", "DIRECCION2", "TELEFONO2", 2);
-    emp->addSucursal("SUCURSAL3", "DIRECCION3", "TELEFONO3", 3);
-    emp->addSucursal("SUCURSAL4", "DIRECCION4", "TELEFONO4", 4);
-    emp->ListarSucursales();
+    // Empresa * emp = s->buscarEmpresa(1234);
+    // emp->addSucursal("SUCURSAL1", "DIRECCION1", "TELEFONO1", 1);
+    // emp->addSucursal("SUCURSAL2", "DIRECCION2", "TELEFONO2", 2);
+    // emp->addSucursal("SUCURSAL3", "DIRECCION3", "TELEFONO3", 3);
+    // emp->addSucursal("SUCURSAL4", "DIRECCION4", "TELEFONO4", 4);
+    // emp->ListarSucursales();
 
 
 

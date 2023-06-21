@@ -17,4 +17,17 @@
     }
     int Asignatura::getcreditos() {
       return creditos;
-    } 
+    }
+    void Asignatura::linkOferta(OfertaLaboral *_oferta)
+    {
+      IKey* key = new Integer(_oferta->getIdExpediente());
+      this->ofertas->add(key, _oferta);
+
+    }
+
+    void Asignatura::unlinkOferta(int _idOferta)
+    {
+      IKey* key = new Integer(_idOferta);
+      this->ofertas->remove(key);
+      delete key;
+    }

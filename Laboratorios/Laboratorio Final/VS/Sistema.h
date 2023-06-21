@@ -34,8 +34,8 @@ class Sistema : public ISistema {
         ~Sistema ();
         //AGREGAR A COLECCIONES
         void addEmpresa(int rut,std::string nombre);
-        void addEstudiante(std::string ci, std::string nombre, Date fechaNac, std::string telefono, int creditos);
-        void addOferta(int idOferta, int idEmpresa, int idSucursal, int idSeccion, int idAsignatura, int precio, int cantidad);
+        void addEstudiante(std::string ci, std::string nombre, Date* fechaNac, std::string telefono, int creditos);
+        void addOferta(int idExpediente, std::string titulo, std::string descripcion, int cantPuestos, int horas, Date* fechaInicio, Date* fechaFin, RangoSueldo* rangoSalarial, int idEmpresa, int idSucursal, int idSeccion, int idAsignatura[50]);
         void addAsignatura(int idAsignatura, std::string nombre);
 
         //QUITAR DE COLECCIONES
@@ -47,7 +47,7 @@ class Sistema : public ISistema {
         //GETS/SETS
         void ListarEmpresas();
         void ListarSucursales(int _rut);
-        Empresa* buscarEmpresa(int _rut);
+        //DtEmpresa* buscarEmpresa(int _rut);
         IDictionary* getEmpresas();
         IDictionary* getPersonas();
         IDictionary* getOfertas();

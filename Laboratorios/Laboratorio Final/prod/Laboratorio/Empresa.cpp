@@ -95,3 +95,15 @@ Sucursal* Empresa::buscarSucursal(int _idSuc){
     //delete key;
     return suc;
 };
+
+void Empresa::linkOferta(OfertaLaboral* _Oferta, int _idSuc, int _idSeccion){
+    IKey * key = new Integer(_idSuc);
+    Sucursal * suc = (Sucursal*) this->sucursales->find(key);
+    suc->linkOferta(_idSeccion, _Oferta);
+    //delete key;
+}
+DtEmpresa *Empresa::getDtEmpresa()
+{
+    DtEmpresa * dte = new DtEmpresa(this->RUT,this->nombre);
+    return dte;
+};

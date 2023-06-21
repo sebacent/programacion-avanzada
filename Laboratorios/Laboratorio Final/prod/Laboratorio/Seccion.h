@@ -12,7 +12,7 @@
 #include "Oferta.h"
 #include <string>
 
-class Oferta;
+class OfertaLaboral;
 class Seccion : public ICollectible {
   private:
     std::string nombre;
@@ -32,6 +32,10 @@ class Seccion : public ICollectible {
     void setNombre(std::string _nombre);
     void setTelefono(std::string _telefono);
     void setidSeccion(int _idSeccion);
+
+    //OFERTAS
+    void agregarOferta(OfertaLaboral* _oferta);
+    void eliminarOferta(int _idOferta);
 
 
     //ELIMINAR

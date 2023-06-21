@@ -44,6 +44,10 @@ class Sucursal : public ICollectible {
     void listarSecciones();
     void eliminarSecciones();
 
+    //ALTA OFERTA
+    void linkOferta(int _idSeccion, OfertaLaboral* _Oferta);
+    void unlinkOferta(int _idSeccion, int _idOferta);
+
     
 
  
