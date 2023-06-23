@@ -38,6 +38,8 @@ class OfertaLaboral : public ICollectible {
     std::string getDescripcion();
     int getHoras();
     RangoSueldo* getRangoSalarial();
+    int getSueldoMin();
+    int getSueldoMax();
     Date* getFechaInicio();
     Date* getFechaFin();
     int getCantPuestos();

@@ -6,7 +6,7 @@
 
 class Factory {
     public:
-        static ISistema * getSistema();
+        static Sistema * getSistema();
 };
 
 #endif

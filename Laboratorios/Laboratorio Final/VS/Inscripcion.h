@@ -6,6 +6,7 @@
 //#include "ICollection/collections/List.h"
 #include "ICollection/collections/OrderedDictionary.h"
 #include "ICollection/Integer.h"
+#include "Estudiante.h"
 // #include "ICollection/interfaces/ICollection.h"
 
 class Inscripcion : public ICollectible {
@@ -13,6 +14,8 @@ class Inscripcion : public ICollectible {
         int id;
         Date* fecha;
         OrderedDictionary* entrevistas;
+        //Estudiante* estudiante;
+        OrderedDictionary * estudiantes;
     public:
         Inscripcion(int id, Date* _fecha, OrderedDictionary* _entrevistas);
         ~Inscripcion();

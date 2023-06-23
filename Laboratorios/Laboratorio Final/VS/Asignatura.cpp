@@ -4,6 +4,7 @@
       this->nombre = _nombre;
       this->id = _id;
       this->creditos = _creditos;
+      this->ofertas = new OrderedDictionary();
     }
 
     Asignatura::~Asignatura(){};

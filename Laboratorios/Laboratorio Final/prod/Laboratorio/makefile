@@ -50,25 +50,25 @@ RangoSueldo.o: ICollectible.o
 Date.o: ICollectible.o 
 	g++ -Wall -g -c Date.cpp
 
-Inscripcion.o: ICollectible.o  Date.o  OrderedDictionary.o#List.o
+Inscripcion.o: Estudiante.o ICollectible.o  Date.o  OrderedDictionary.o#List.o
 	g++ -Wall -g -c Inscripcion.cpp
 
 Asignatura.o: Oferta.o ICollectible.o OrderedDictionary.o
 	g++ -Wall -g -c Asignatura.cpp	
 
-Carrera.o: ICollectible.o 
+Carrera.o: ICollectible.o OrderedDictionary.o Asignatura.o
 	g++ -Wall -g -c Carrera.cpp
 
-Persona.o: ICollectible.o 
+Persona.o: Carrera.o ICollectible.o 
 	g++ -Wall -g -c Persona.cpp
 
 Encargado.o: Persona.o 
 	g++ -Wall -g -c Encargado.cpp
 
-Estudiante.o: Persona.o Carre.o OrderedDictionary.o
+Estudiante.o: Persona.o  OrderedDictionary.o
 	g++ -Wall -g -c Estudiante.cpp
 
-Seccion.o: ICollectible.o 
+Seccion.o: Encargado.o ICollectible.o 
 	g++ -Wall -g -c Seccion.cpp
 
 Sucursal.o: Seccion.o OrderedDictionary.o
@@ -89,7 +89,7 @@ Oferta.o : DtOferta.o Inscripcion.o Seccion.o ICollectible.o ICollection.o Order
 ISistema.o: DtEmpresa.o ISistema.h
 	g++ -c ISistema.cpp
 
-Sistema.o: ISistema.o Empresa.o Oferta.o Sistema.h
+Sistema.o: ISistema.o Empresa.o Oferta.o Carrera.o Sistema.h 
 	g++ -Wall -g -c Sistema.cpp
 
 
@@ -101,11 +101,17 @@ main.o: ISistema.o Factory.o
 
 clean:
 	rm -f programa *.o $(INTERFACES)*.o $(COLECCIONES)*.o
+
+clean2:
+	rm -f *.o $(INTERFACES)*.o $(COLECCIONES)*.o
+
 run:
 	make clean
 	make
 	clear
+	make clean2
 	./programa
+
 
 
 

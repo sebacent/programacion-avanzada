@@ -35,18 +35,22 @@ class Empresa : public ICollectible {
         std::string getNombre(); 
 
         //OPERACIONES DE SUCURSALES
-        void addSucursal(std::string _nombre, std::string _direccion, std::string _telefono, int _idSucursal);
+        void addSucursal(std::string _nombre, std::string _telefono, std::string _direccion, int _idSucursal);
         std::string getInfoSuc(int _idSuc);
         void deleteSucursal(int _idSuc);
         void ListarSucursales();
         void eliminarSucursales();
         Sucursal* buscarSucursal(int _idSuc);
-        void agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion);
+        void addSeccion(int _idSuc, int _idSeccion, std::string _nombre, std::string _telefono);
 
         //ALTA OFERTA
         void linkOferta(OfertaLaboral* _Oferta , int _idSuc , int _idSeccion);
 
         DtEmpresa* getDtEmpresa();
+
+        void ListarSecciones(int _idSucursal);
+        void ListarOfertas(int _idSucursal, int _idSeccion);
+        
 };
 
 

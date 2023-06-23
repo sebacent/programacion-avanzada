@@ -1,12 +1,12 @@
     #include "Estudiante.h"
 
-    Estudiante::Estudiante(std::string _nombre, std::string _cedula, std::string _direccion, Date _fechaNacimiento, std::string _telefono, int _creditos, Carrera* _carrera) {
+    Estudiante::Estudiante(std::string _nombre, std::string _cedula, std::string _direccion, Date _fechaNacimiento, std::string _telefono, int _creditos) {
       this->nombre = _nombre;
       this->cedula = _cedula;
       this->telefono = _telefono;
       this->creditos = _creditos;
-      this->asignaturas = new OrderedDictionary();
-      this->carrera = _carrera;
+      // this->asignaturas = new OrderedDictionary();
+       this->carreras = new OrderedDictionary();
 
     }
     Estudiante::~Estudiante() {
@@ -27,9 +27,9 @@
     void Estudiante::setCreditos(int _creditos) {
       this->creditos = _creditos;
     }
-    Carrera* Estudiante::getCarrera(){
-        return this->carrera;
-    }
-    void Estudiante::setCarrera(Carrera* _carrera){
-        this->carrera = _carrera;
-    }
+    // OrderedDictionary* Estudiante::getCarrera(){
+    //     return this->carrera;
+    // }
+    // void Estudiante::setCarrera(OrderedDictionary* _carrera){
+    //     this->carrera = _carrera;
+    // }

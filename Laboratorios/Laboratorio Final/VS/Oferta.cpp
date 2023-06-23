@@ -31,6 +31,15 @@ int OfertaLaboral::getHoras() {
 RangoSueldo* OfertaLaboral::getRangoSalarial() {
     return rangoSalarial;
 }
+
+int OfertaLaboral::getSueldoMax() {
+    return rangoSalarial->getMaximo();
+}
+
+int OfertaLaboral::getSueldoMin() {
+    return rangoSalarial->getMinimo();
+}
+
 Date* OfertaLaboral::getFechaInicio() {
     return fechaInicio;
 }   
@@ -74,13 +83,13 @@ void OfertaLaboral::setCantPuestos(int _cantPuestos){
 void OfertaLaboral::agregarAsignatura(Asignatura* _asignatura){
     IKey *key = new Integer(_asignatura->getId());
     this->asignaturas->add(key, _asignatura);
-    delete key;
+    //delete key;
 }
 
 void OfertaLaboral::agregarInscripcion(Inscripcion* _inscripcion){
     IKey *key = new Integer(_inscripcion->getId());
     this->inscripciones->add(key, _inscripcion);
-    delete key;
+    //delete key;
 }
 
 // void OfertaLaboral::agregarContratacion(Contratacion* _contratacion){

@@ -3,10 +3,11 @@
 //#include "ICollection/interfaces/ICollection.h"
 //#include "ICollection/collections/List.h"
 //#include <iostream>
-#include "Carrera.h"
+//#include "Carrera.h"
 #include "ICollection/interfaces/IDictionary.h"
 #include "Date.h"
 #include "ICollection/interfaces/ICollectible.h"
+#include <string>
 
 
 class Persona : public ICollectible {

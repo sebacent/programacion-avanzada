@@ -1,7 +1,7 @@
 #include "Sucursal.h"
 
 
-Sucursal::Sucursal(std::string _nombre, std::string _direccion, std::string _telefono, int _idSucursal) {
+Sucursal::Sucursal(std::string _nombre, std::string _telefono, std::string _direccion, int _idSucursal) {
     this->nombre = _nombre;
     this->direccion = _direccion;
     this->telefono = _telefono;
@@ -54,7 +54,7 @@ Seccion* Sucursal::buscarSeccion(int _idSeccion) {
     return (Seccion*)this->secciones->find(KSeccion);
 }
 
-void Sucursal::listarSecciones(){
+void Sucursal::ListarSecciones(){
     IIterator* it = secciones->getIterator();
     std::cout << "Secciones para la sucursal: " <<this->getNombre()<< std::endl;
     while(it->hasCurrent()){
@@ -82,4 +82,10 @@ void Sucursal::eliminarSecciones(){
 void Sucursal::linkOferta(int _idSeccion, OfertaLaboral* _Oferta){
     Seccion* seccion = this->buscarSeccion(_idSeccion);
     seccion->agregarOferta(_Oferta);
+}
+
+void Sucursal::ListarOfertas(int _idSeccion){
+    IKey* KSeccion = new Integer(_idSeccion);
+    Seccion* seccion = (Seccion *) this->secciones->find(KSeccion);
+    seccion->ListarOfertas();
 }

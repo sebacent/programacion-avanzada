@@ -22,7 +22,7 @@ class Sucursal : public ICollectible {
     int idSucursal;
     OrderedDictionary* secciones;
   public:
-    Sucursal(std::string _nombre, std::string _direccion, std::string _telefono, int _idSucursal); 
+    Sucursal(std::string _nombre, std::string _telefono, std::string _direccion,  int _idSucursal); 
     ~Sucursal();
     
     //GETS
@@ -41,12 +41,14 @@ class Sucursal : public ICollectible {
     void agregarSeccion(std::string _nombre,std::string telefono, int _idSeccion);
     void eliminarSeccion(int _idSeccion);
     Seccion* buscarSeccion(int _idSeccion);
-    void listarSecciones();
+    void ListarSecciones();
     void eliminarSecciones();
 
     //ALTA OFERTA
     void linkOferta(int _idSeccion, OfertaLaboral* _Oferta);
     void unlinkOferta(int _idSeccion, int _idOferta);
+
+    void ListarOfertas(int _idSeccion);
 
     
 

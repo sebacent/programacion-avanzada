@@ -32,9 +32,9 @@ void Empresa::setRUT(int _rut)
     this->RUT = _rut;
 };
 
-void Empresa::addSucursal(std::string _nombre, std::string _direccion, std::string _telefono, int _idSucursal)
+void Empresa::addSucursal(std::string _nombre, std::string _telefono, std::string _direccion, int _idSucursal)
 {
-    Sucursal * _sucursal = new Sucursal(_nombre,_direccion,_telefono,_idSucursal);
+    Sucursal * _sucursal = new Sucursal(_nombre,_telefono,_direccion,_idSucursal);
     IKey * key = new Integer(_idSucursal);
     this->sucursales->add(key,_sucursal);
     //delete key;
@@ -82,10 +82,11 @@ void Empresa::eliminarSucursales(){
 };
 
 
-void Empresa::agregarSeccion(int _idSuc, std::string _nombre, std::string _telefono, int _idSeccion){
+void Empresa::addSeccion(int _idSuc,int _idSeccion, std::string _nombre, std::string _telefono ){
     IKey * key = new Integer(_idSuc);
     Sucursal * suc = (Sucursal*) this->sucursales->find(key);
-    suc->agregarSeccion(_nombre,_telefono,_idSeccion);
+    if (suc != NULL)
+        suc->agregarSeccion(_nombre,_telefono,_idSeccion);
     //delete key;
 };
 
@@ -106,4 +107,18 @@ DtEmpresa *Empresa::getDtEmpresa()
 {
     DtEmpresa * dte = new DtEmpresa(this->RUT,this->nombre);
     return dte;
+}
+void Empresa::ListarSecciones(int _idSucursal){
+    IKey * key = new Integer(_idSucursal);
+    Sucursal * suc = (Sucursal*) this->sucursales->find(key);
+    suc->ListarSecciones();
+    //delete key;
+
+};
+
+void Empresa::ListarOfertas(int _idSucursal, int _idSeccion){
+    IKey * key = new Integer(_idSucursal);
+    Sucursal * suc = (Sucursal*) this->sucursales->find(key);
+    suc->ListarOfertas(_idSeccion);
+    //delete key;
 };

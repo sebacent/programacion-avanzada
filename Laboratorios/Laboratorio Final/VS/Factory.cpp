@@ -1,5 +1,6 @@
 #include "Factory.h"
 
-ISistema * Factory::getSistema() {
+//ISistema
+Sistema * Factory::getSistema() {
     return Sistema::getInstancia();
 }

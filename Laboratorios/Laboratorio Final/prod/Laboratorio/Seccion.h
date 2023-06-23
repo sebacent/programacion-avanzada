@@ -7,10 +7,11 @@
 // #include "ICollection/collections/List.h"
 // #include "Persona.h"
 // #include <string.h>
-// #include <iostream>
+#include <iostream>
 #include "ICollection/interfaces/ICollectible.h"
 #include "Oferta.h"
 #include <string>
+#include "Encargado.h"
 
 class OfertaLaboral;
 class Seccion : public ICollectible {
@@ -19,7 +20,7 @@ class Seccion : public ICollectible {
     std::string telefono;
     int idSeccion;
     OrderedDictionary * ofertas;
-   // Persona* encargado; 
+    Encargado* encargado; 
   public:
     Seccion(std::string _nombre, std::string _telefono, int _idSeccion);
     ~Seccion();
@@ -36,6 +37,7 @@ class Seccion : public ICollectible {
     //OFERTAS
     void agregarOferta(OfertaLaboral* _oferta);
     void eliminarOferta(int _idOferta);
+    void ListarOfertas();
 
 
     //ELIMINAR
