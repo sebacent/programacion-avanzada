@@ -38,7 +38,9 @@ class Seccion : public ICollectible {
     void agregarOferta(OfertaLaboral* _oferta);
     void eliminarOferta(int _idOferta);
     void ListarOfertas();
-
+    OfertaLaboral* buscarOferta(int _idOferta);
+    OrderedDictionary* getOfertas();
+   
 
     //ELIMINAR
     //Persona* getEncargado();

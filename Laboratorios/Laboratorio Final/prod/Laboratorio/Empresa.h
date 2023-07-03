@@ -41,6 +41,7 @@ class Empresa : public ICollectible {
         void ListarSucursales();
         void eliminarSucursales();
         Sucursal* buscarSucursal(int _idSuc);
+        OrderedDictionary* getSucursales();
         void addSeccion(int _idSuc, int _idSeccion, std::string _nombre, std::string _telefono);
 
         //ALTA OFERTA

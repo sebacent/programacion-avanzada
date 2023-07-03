@@ -1,6 +1,6 @@
 #ifndef DATE_H
 #define DATE_H
-
+#include <iostream>
 #include "ICollection/interfaces/ICollectible.h"
 class Date : public ICollectible {
   private:

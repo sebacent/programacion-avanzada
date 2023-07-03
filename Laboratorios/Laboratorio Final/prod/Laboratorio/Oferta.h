@@ -44,6 +44,7 @@ class OfertaLaboral : public ICollectible {
     Date* getFechaFin();
     int getCantPuestos();
     Seccion * getSeccion();
+    bool activa(Date* _fechaHoy);
     
     void setIdExpediente(int _idExpediente);
     void setTitulo(std::string _titulo);
@@ -68,6 +69,5 @@ class OfertaLaboral : public ICollectible {
     //ICollection* getContrataciones();
 
     //DtOferta* getDtOferta();
- 
 };
 #endif /* OFERTALABORAL_H */

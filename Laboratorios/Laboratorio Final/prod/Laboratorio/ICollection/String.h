@@ -1,10 +1,12 @@
+
 /* 
  * File:   String.h
  * Author: igui
  *
  * Created on 29 de mayo de 2011, 06:53 PM
  */
-
+#ifndef PROG4_STRING_H
+#define	PROG4_STRING_H
 
 #include "interfaces/ICollectible.h"
 #include "interfaces/OrderedKey.h"

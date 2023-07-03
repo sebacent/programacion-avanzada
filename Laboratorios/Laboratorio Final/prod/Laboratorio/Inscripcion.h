@@ -7,17 +7,22 @@
 #include "ICollection/collections/OrderedDictionary.h"
 #include "ICollection/Integer.h"
 #include "Estudiante.h"
+#include "Oferta.h"
 // #include "ICollection/interfaces/ICollection.h"
 
+class OfertaLaboral;
+class Estudiante;
+//const int idInscripcion = 0;
 class Inscripcion : public ICollectible {
     private:
         int id;
         Date* fecha;
         OrderedDictionary* entrevistas;
         //Estudiante* estudiante;
-        OrderedDictionary * estudiantes;
+        OfertaLaboral* oferta;
+        Estudiante * estudiante;
     public:
-        Inscripcion(int id, Date* _fecha, OrderedDictionary* _entrevistas);
+        Inscripcion(int _id, Date* _fecha, Estudiante* _estudiante, OfertaLaboral* _oferta);
         ~Inscripcion();
         Date* getFecha();
         int getId();
@@ -27,6 +32,8 @@ class Inscripcion : public ICollectible {
         void setEntrevistas(OrderedDictionary* _entrevistas);    
         void agregarEntrevista(Date* _fecha);
         void eliminarEntrevista(Date* _fecha);
+        Estudiante* getEstudiante();
+        OfertaLaboral* getOferta();
         
 };
 

@@ -41,6 +41,7 @@ class Sucursal : public ICollectible {
     void agregarSeccion(std::string _nombre,std::string telefono, int _idSeccion);
     void eliminarSeccion(int _idSeccion);
     Seccion* buscarSeccion(int _idSeccion);
+    OrderedDictionary* getSecciones();
     void ListarSecciones();
     void eliminarSecciones();
 

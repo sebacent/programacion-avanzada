@@ -1,15 +1,20 @@
 #include "Inscripcion.h"
 
-Inscripcion::Inscripcion(int _id, Date* _fecha, OrderedDictionary* _entrevistas) {
+Inscripcion::Inscripcion(int _id, Date* _fecha, Estudiante* _estudiante, OfertaLaboral* _oferta) {
+    //idInscripcion += 1;
     this->id = _id;
     this->fecha = _fecha;
     this->entrevistas = new OrderedDictionary();
-    this->entrevistas = _entrevistas;
+    this->estudiante = _estudiante;
+    this->oferta = _oferta;
 }
 
 Inscripcion::~Inscripcion() {
-    delete this->fecha;
-    delete this->entrevistas;
+    // delete this->fecha;
+    // delete this->entrevistas;
+    // delete this->estudiante;
+    // delete this->oferta;
+    //std::cout << "Inscripcion eliminada" << std::endl;
 }
 
 int Inscripcion::getId() {
@@ -44,3 +49,18 @@ void Inscripcion::agregarEntrevista(Date* _fecha) {
     delete key;
     
 }
+
+void Inscripcion::eliminarEntrevista(Date* _fecha) {
+    IKey *key = new Integer(_fecha->getDia() + _fecha->getMes() + _fecha->getAnio());
+    this->entrevistas->remove(key);
+    delete key;
+}
+
+Estudiante* Inscripcion::getEstudiante() {
+    return this->estudiante;
+}
+
+OfertaLaboral* Inscripcion::getOferta() {
+    return this->oferta;
+}
+

@@ -4,7 +4,7 @@
       this->nombre = _nombre;
       this->id = _id;
       this->creditos = _creditos;
-      this->ofertas = new OrderedDictionary();
+      this->ofertas = new OrderedDictionary(); // SE ROMPE Y NO LO NECESITO
     }
 
     Asignatura::~Asignatura(){};
@@ -16,7 +16,7 @@
     int Asignatura::getId() {
       return id;
     }
-    int Asignatura::getcreditos() {
+    int Asignatura::getCreditos() {
       return creditos;
     }
     void Asignatura::linkOferta(OfertaLaboral *_oferta)

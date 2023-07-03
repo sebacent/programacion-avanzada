@@ -122,3 +122,7 @@ void Empresa::ListarOfertas(int _idSucursal, int _idSeccion){
     suc->ListarOfertas(_idSeccion);
     //delete key;
 };
+
+OrderedDictionary * Empresa::getSucursales(){
+    return this->sucursales;
+};

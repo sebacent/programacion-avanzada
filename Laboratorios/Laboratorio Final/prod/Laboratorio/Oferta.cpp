@@ -13,7 +13,16 @@ OfertaLaboral::OfertaLaboral(int _idExpediente, std::string _titulo, std::string
     this->inscripciones = new OrderedDictionary();
     this->seccion = NULL;
 };
-OfertaLaboral::~OfertaLaboral(){};
+OfertaLaboral::~OfertaLaboral(){
+    delete this->asignaturas;
+    delete this->inscripciones;
+    delete this->rangoSalarial;
+    delete this->fechaInicio;
+    delete this->fechaFin;
+    delete this->seccion;
+    //delete this;
+
+};
 
 
 int OfertaLaboral::getIdExpediente() {
@@ -52,6 +61,12 @@ int OfertaLaboral::getCantPuestos() {
 
 Seccion* OfertaLaboral::getSeccion() {
     return seccion;
+}
+
+bool OfertaLaboral::activa(Date* _fechaHoy)
+{
+    
+    return (this->fechaInicio->operator<=(_fechaHoy) && this->fechaFin->operator>=(_fechaHoy));
 }
 
 void OfertaLaboral::setIdExpediente(int _idExpediente){

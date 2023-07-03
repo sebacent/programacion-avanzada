@@ -1,6 +1,6 @@
 INTERFACES = ICollection/interfaces/
 COLECCIONES = ICollection/collections/
-OBJETOS = Date.o RangoSueldo.o Carrera.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Seccion.o Sucursal.o DtEmpresa.o Empresa.o DtOferta.o Oferta.o main.o ISistema.o Sistema.o Factory.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
+OBJETOS = Date.o RangoSueldo.o Carrera.o Inscripcion.o Asignatura.o Persona.o Encargado.o Estudiante.o Nota.o Seccion.o Sucursal.o DtEmpresa.o Empresa.o DtOferta.o Oferta.o main.o ISistema.o Sistema.o Factory.o ICollectible.o IIterator.o IKey.o OrderedKey.o OrderedDictionaryEntry.o String.o Integer.o ListNode.o ListIterator.o IDictionary.o OrderedDictionary.o
 
 
 #List.o
@@ -26,6 +26,9 @@ OrderedKey.o: $(INTERFACES)OrderedKey.h $(INTERFACES)IKey.o
 Integer.o: ICollection/Integer.h ICollectible.o OrderedKey.o
 	g++ -Wall -g -c ICollection/Integer.cpp
 
+String.o: ICollection/String.h ICollectible.o OrderedKey.o
+	g++ -Wall -g -c ICollection/String.cpp
+
 OrderedDictionaryEntry.o: $(COLECCIONES)OrderedDictionaryEntry.h ICollectible.o OrderedKey.o
 	g++ -Wall -g -c $(COLECCIONES)OrderedDictionaryEntry.cpp
 
@@ -50,7 +53,7 @@ RangoSueldo.o: ICollectible.o
 Date.o: ICollectible.o 
 	g++ -Wall -g -c Date.cpp
 
-Inscripcion.o: Estudiante.o ICollectible.o  Date.o  OrderedDictionary.o#List.o
+Inscripcion.o: Estudiante.o Oferta.o ICollectible.o  Date.o  OrderedDictionary.o#List.o
 	g++ -Wall -g -c Inscripcion.cpp
 
 Asignatura.o: Oferta.o ICollectible.o OrderedDictionary.o
@@ -59,13 +62,16 @@ Asignatura.o: Oferta.o ICollectible.o OrderedDictionary.o
 Carrera.o: ICollectible.o OrderedDictionary.o Asignatura.o
 	g++ -Wall -g -c Carrera.cpp
 
+Nota.o : Asignatura.o Estudiante.o ICollectible.o 
+	g++ -Wall -g -c Nota.cpp	
+
 Persona.o: Carrera.o ICollectible.o 
 	g++ -Wall -g -c Persona.cpp
 
 Encargado.o: Persona.o 
 	g++ -Wall -g -c Encargado.cpp
 
-Estudiante.o: Persona.o  OrderedDictionary.o
+Estudiante.o: Oferta.o Nota.o Inscripcion.o Persona.o  OrderedDictionary.o
 	g++ -Wall -g -c Estudiante.cpp
 
 Seccion.o: Encargado.o ICollectible.o 
@@ -89,7 +95,7 @@ Oferta.o : DtOferta.o Inscripcion.o Seccion.o ICollectible.o ICollection.o Order
 ISistema.o: DtEmpresa.o ISistema.h
 	g++ -c ISistema.cpp
 
-Sistema.o: ISistema.o Empresa.o Oferta.o Carrera.o Sistema.h 
+Sistema.o: ISistema.o Empresa.o Oferta.o Carrera.o Sistema.h  String.o Integer.o OrderedDictionary.o
 	g++ -Wall -g -c Sistema.cpp
 
 

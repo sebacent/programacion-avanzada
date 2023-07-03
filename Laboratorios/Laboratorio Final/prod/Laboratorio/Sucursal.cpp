@@ -54,6 +54,11 @@ Seccion* Sucursal::buscarSeccion(int _idSeccion) {
     return (Seccion*)this->secciones->find(KSeccion);
 }
 
+OrderedDictionary *Sucursal::getSecciones()
+{
+    return this->secciones;
+}
+
 void Sucursal::ListarSecciones(){
     IIterator* it = secciones->getIterator();
     std::cout << "Secciones para la sucursal: " <<this->getNombre()<< std::endl;

@@ -67,3 +67,8 @@ void Seccion::ListarOfertas()
     }
     delete it;
 }
+
+OrderedDictionary *Seccion::getOfertas()
+{
+    return this->ofertas;
+}

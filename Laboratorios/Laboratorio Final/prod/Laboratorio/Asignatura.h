@@ -25,7 +25,7 @@ class Asignatura : public  ICollectible {
     ~Asignatura();
     std::string getNombre();
     int getId();
-    int getcreditos();
+    int getCreditos();
     void linkOferta(OfertaLaboral* _oferta);
     void unlinkOferta(int _idOferta);
 };

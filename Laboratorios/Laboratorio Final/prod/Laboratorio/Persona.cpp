@@ -2,25 +2,25 @@
 
 
 std::string Persona::getNombre() {
-      return nombre;
+      return this->nombre;
     }
 std::string Persona::getCedula() {
-      return cedula;
+      return this->cedula;
     }
 Date* Persona::getFechaNacimiento() {
-      return fechaNacimiento;
+      return this->fechaNacimiento;
     }
 Persona::~Persona() {
     }
 
 void Persona::setFechaNacimiento(Date* _fechaNacimiento) {
-      fechaNacimiento = _fechaNacimiento;
+      this->fechaNacimiento = _fechaNacimiento;
     }
 void Persona::setNombre(std::string _nombre) {
-      nombre = _nombre;
+      this->nombre = _nombre;
     }
 void Persona::setCedula(std::string _cedula) {
-      cedula = _cedula;
+      this->cedula = _cedula;
     }
 
 // Persona::Persona() {
